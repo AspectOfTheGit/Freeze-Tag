@@ -1,0 +1,8 @@
+{
+    "pack": {
+        "pack_format": 107.1,
+        "description": "§3Freeze Tag",
+        "min_format": [107, 1],
+        "max_format": [107, 1]
+    }
+}
