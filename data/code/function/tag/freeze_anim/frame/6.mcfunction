@@ -1,4 +1,5 @@
 
+particle block{block_state:{Name:ice}} ~ ~1.3 ~ 0.3 0.5 0.3 0.7 2
 data merge entity @s[tag=freeze_display_0] {transformation:[0.772740661f,0f,-0.2070552361f,-0.3125f,0f,0.8f,0f,0f,0.2070552361f,0f,0.772740661f,-0.625f,0f,0f,0f,1f],interpolation_duration:2,start_interpolation:0}
 data merge entity @s[tag=freeze_display_1] {transformation:[0.8693332437f,0f,0.2329371406f,-0.5625f,0f,0.9f,0f,0.8f,-0.2329371406f,0f,0.8693332437f,-0.375f,0f,0f,0f,1f],interpolation_duration:2,start_interpolation:0}
 data merge entity @s[tag=freeze_display_2] {transformation:[0.3863703305f,0f,-0.103527618f,-0.1875f,0f,0.4f,0f,1.696875f,0.103527618f,0f,0.3863703305f,-0.375f,0f,0f,0f,1f],interpolation_duration:2,start_interpolation:0}

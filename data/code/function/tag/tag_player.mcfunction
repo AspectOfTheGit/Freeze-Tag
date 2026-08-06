@@ -1,6 +1,7 @@
 # as player
 
-function code:tag/untag_player
+execute if entity @s[tag=tagged] run return fail
+
 # attributes
 attribute @s movement_speed base set 0
 attribute @s jump_strength base set 0
