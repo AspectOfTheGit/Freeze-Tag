@@ -3,7 +3,8 @@ execute as @a[tag=!joined] run function code:player_join
 execute as @a[scores={leave=1..}] run function code:player_join
 scoreboard players set @a leave 0
 
-execute as @a[gamemode=!creative,tag=!tagged,team=!tagger] run data modify entity @s abilities.invulnerable set value 0b
+execute if score playing temp matches 0 as @a run data modify entity @s abilities.invulnerable set value 1b
+execute if score playing temp matches 1 as @a[gamemode=!creative,tag=!tagged,team=!tagger] run data modify entity @s abilities.invulnerable set value 0b
 execute as @a[team=tagger] run data modify entity @s abilities.invulnerable set value 1b
 
 execute as @a[tag=tagged] at @s run function code:tagged_tick
