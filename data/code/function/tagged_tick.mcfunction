@@ -21,7 +21,7 @@ scoreboard players operation @s temp /= freeze_time const
 execute store result storage code:freezetag temp.denary int 1 run scoreboard players get @s temp
 function code:lookup_hex with storage code:freezetag temp
 
-title @s times 0 20 0
+#title @s times 0 20 0
 
 title @s actionbar [{"atlas":"minecraft:particles","sprite":"generic_6"},{"text":" You have been "},{"text":"frozen",color:"aqua"},{"text":"! "},{"atlas":"minecraft:particles","sprite":"generic_6"}]
 title @s title ""

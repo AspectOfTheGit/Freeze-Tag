@@ -6,6 +6,7 @@ gamerule immediate_respawn true
 gamerule locator_bar false
 gamerule fall_damage false
 gamerule fire_damage false
+gamerule send_command_feedback false
 
 tellraw @a { "color": "#00FF00", "text": "The Code is Load"}
 
@@ -21,7 +22,7 @@ scoreboard objectives add tagged_time_t dummy
 scoreboard objectives add tagged_time_s dummy
 
 scoreboard objectives add temp dummy
-
+scoreboard objectives add leave minecraft.custom:minecraft.leave_game
 
 scoreboard objectives setdisplay list tagged_time_s
 
@@ -39,3 +40,12 @@ team add runner
 team modify runner color aqua
 team modify runner collisionRule never
 team modify runner nametagVisibility hideForOtherTeams
+
+
+# bossbar
+bossbar remove timer
+bossbar add timer {"color":"green","text":"Time"}
+bossbar set timer color green
+bossbar set timer max 2400
+bossbar set timer players @a
+bossbar set timer visible true
