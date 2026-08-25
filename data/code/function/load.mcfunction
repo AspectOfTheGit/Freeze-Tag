@@ -9,6 +9,10 @@ gamerule fire_damage false
 gamerule drowning_damage false
 gamerule send_command_feedback false
 gamerule show_advancement_messages false
+# ignore these silly errors
+gamerule axiom:do_trample_farmland false
+gamerule axiom:do_block_gravity false
+gamerule axiom:do_block_drops false
 
 tellraw @a { "color": "#00FF00", "text": "The Code is Load"}
 
@@ -27,7 +31,7 @@ scoreboard objectives add tagged_time_s dummy
 scoreboard objectives add temp dummy
 scoreboard objectives add leave minecraft.custom:minecraft.leave_game
 
-scoreboard objectives add spectate trigger
+scoreboard objectives add afk trigger
 
 scoreboard objectives setdisplay list tagged_time_s
 

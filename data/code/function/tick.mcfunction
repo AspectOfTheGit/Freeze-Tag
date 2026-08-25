@@ -19,7 +19,7 @@ execute as @e[type=block_display] unless score @s anim_frame matches -1 unless s
 effect give @a night_vision infinite 0 true
 effect give @a saturation infinite 0 true
 
-execute if score tagger_start_timer temp matches 1.. run scoreboard players remove tagger_start_timer temp 1
+execute if score playing temp matches 1 if score tagger_start_timer temp matches 1.. run scoreboard players remove tagger_start_timer temp 1
 scoreboard players operation tagger_start_timer_s temp = tagger_start_timer temp
 scoreboard players operation tagger_start_timer_s temp /= 20 const
 execute if score tagger_start_timer temp matches 2.. run title @a actionbar {"color":"red","score":{name:"tagger_start_timer_s",objective:"temp"}}
@@ -63,9 +63,9 @@ execute as @e[tag=!valid,tag=user_freeze_display] run function code:tag/remove_d
 execute as @e[tag=!valid,tag=user_freeze_display] run kill
 
 
-scoreboard players enable @a spectate
+scoreboard players enable @a afk
 # RETURN IS USED HERE. dont put anything important after.
-execute as @a[scores={spectate=1..},tag=!notplaying] run return run function code:spectate
-execute as @a[scores={spectate=1..}] run tag @s remove notplaying
+execute as @a[scores={afk=1..},tag=!notplaying] run return run function code:spectate
+execute as @a[scores={afk=1..}] run tag @s remove notplaying
 
-scoreboard players set @a spectate 0
+scoreboard players set @a afk 0
