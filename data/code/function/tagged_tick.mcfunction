@@ -11,6 +11,8 @@ execute unless entity @a[team=tagger,distance=..6] run scoreboard players remove
 
 execute if score @s tagged_time_t matches 0 run return run function code:killed
 
+data modify entity @s Motion set value [0d,0d,0d]
+
 scoreboard players operation @s tagged_time_s = @s tagged_time_t
 scoreboard players operation @s tagged_time_s /= 20 const
 

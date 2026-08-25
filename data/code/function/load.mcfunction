@@ -6,7 +6,9 @@ gamerule immediate_respawn true
 gamerule locator_bar false
 gamerule fall_damage false
 gamerule fire_damage false
+gamerule drowning_damage false
 gamerule send_command_feedback false
+gamerule show_advancement_messages false
 
 tellraw @a { "color": "#00FF00", "text": "The Code is Load"}
 
@@ -14,6 +16,7 @@ scoreboard objectives add const dummy
 scoreboard players set 20 const 20
 scoreboard players set 255 const 255
 scoreboard players set freeze_time const 500
+scoreboard players set round_time const 2400
 
 scoreboard objectives add anim_frame dummy
 scoreboard objectives add anim_wait dummy
@@ -23,6 +26,8 @@ scoreboard objectives add tagged_time_s dummy
 
 scoreboard objectives add temp dummy
 scoreboard objectives add leave minecraft.custom:minecraft.leave_game
+
+scoreboard objectives add spectate trigger
 
 scoreboard objectives setdisplay list tagged_time_s
 
@@ -40,12 +45,13 @@ team add runner
 team modify runner color aqua
 team modify runner collisionRule never
 team modify runner nametagVisibility hideForOtherTeams
+team modify runner friendlyFire false
 
 
 # bossbar
 bossbar remove timer
 bossbar add timer {"color":"green","text":"Time"}
 bossbar set timer color green
-bossbar set timer max 2400
 bossbar set timer players @a
 bossbar set timer visible true
+bossbar set timer style notched_10

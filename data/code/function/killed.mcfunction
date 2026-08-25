@@ -7,6 +7,9 @@ gamemode spectator
 
 execute if entity @a[team=!tagger,tag=!tagged,gamemode=adventure] run title @s times 0 20 5
 
-execute if entity @a[team=!tagger,tag=!tagged,gamemode=adventure] run title @s title ""
-title @s subtitle {"text":"You died!","color":"#FF0000"}
+execute if score playing temp matches 1 run tellraw @a[team=runner] [{text:"☠ ",color:"red"},{selector:"@s",color:"dark_red"},{"text":" froze to death! ",color:"dark_red"}]
+execute if score playing temp matches 1 run tellraw @a[team=!runner] [{text:"☠ ",color:"red"},{selector:"@s",color:"white"},{"text":" froze to death! ",color:"white"}]
+
+execute if score playing temp matches 1 run title @s title ""
+execute if score playing temp matches 1 run title @s subtitle {"text":"You died!","color":"#FF0000"}
 title @s actionbar ""

@@ -1,7 +1,9 @@
 
 title @a times 0 60 20
-title @a title {text:"Taggers Win!",color:"red"}
+title @a[gamemode=!creative] title {text:"Taggers Win!",color:"red"}
 scoreboard players set playing temp 0
+
+title @a actionbar ""
 
 scoreboard players set new_round_timer temp 120
 
