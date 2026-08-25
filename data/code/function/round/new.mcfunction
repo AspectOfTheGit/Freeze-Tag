@@ -27,4 +27,4 @@ scoreboard players set round_timer temp 0
 execute as @r[gamemode=adventure,team=runner,tag=!notplaying] run function code:round/choose_tagger
 execute if score .players temp matches 4.. as @r[gamemode=adventure,team=runner,tag=!notplaying] run function code:round/choose_tagger
 execute if score .players temp matches 7.. as @r[gamemode=adventure,team=runner,tag=!notplaying] run function code:round/choose_tagger
-execute if score .players temp matches 10.. as @r[gamemode=adventure,team=runner,tag=!notplaying] run function code:round/choose_tagger
+#execute if score .players temp matches 10.. as @r[gamemode=adventure,team=runner,tag=!notplaying] run function code:round/choose_tagger

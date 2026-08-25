@@ -1,6 +1,6 @@
 
-function code:tag/untag_player
 gamemode spectator
+function code:tag/untag_player
 team leave @s
 effect clear
 

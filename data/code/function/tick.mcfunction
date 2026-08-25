@@ -62,6 +62,7 @@ execute as @e[tag=!valid,tag=freeze_display] run kill
 execute as @e[tag=!valid,tag=user_freeze_display] run function code:tag/remove_display
 execute as @e[tag=!valid,tag=user_freeze_display] run kill
 
+execute as @a[tag=notplaying] run title @s actionbar {color:"yellow",text:"👁 You are spectating!"}
 
 scoreboard players enable @a afk
 # RETURN IS USED HERE. dont put anything important after.

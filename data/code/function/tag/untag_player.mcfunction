@@ -23,7 +23,9 @@ scoreboard players reset @s tagged_time_s
 
 tag @s remove tagged
 
+function code:tag/remove_display
+
+execute if entity @s[gamemode=spectator] run return 0
+
 execute if score playing temp matches 1 run tellraw @a[team=tagger] [{"text":"🔥 ",color:"gold"},{selector:"@s",color:"red"},{"text":" has been ",color:"red"},{"text":"unfrozen",color:"blue"},{"text":"! ",color:"red"},{"text":"🔥",color:"gold"}]
 execute if score playing temp matches 1 run tellraw @a[team=!tagger] [{"text":"🔥 ",color:"gold"},{selector:"@s",color:"white"},{"text":" has been ",color:"white"},{"text":"unfrozen",color:"aqua"},{"text":"! ",color:"white"},{"text":"🔥",color:"gold"}]
-
-function code:tag/remove_display

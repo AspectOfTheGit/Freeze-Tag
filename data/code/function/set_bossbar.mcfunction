@@ -1,4 +1,9 @@
 
+execute unless score playing temp matches 1 run bossbar set timer value 0
+execute unless score playing temp matches 1 run bossbar set timer name {"color":"red","text":"Waiting for players"}
+
+execute unless score playing temp matches 1 run return 0
+
 $bossbar set timer value $(timer)
 $bossbar set timer max $(max)
 #$bossbar set timer name [{"color":"green","text":"Time "},{"color":"yellow","text":"($(seconds)s)"}]
