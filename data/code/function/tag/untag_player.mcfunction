@@ -7,7 +7,7 @@ effect clear
 playsound minecraft:block.glass.break master @a ~ ~ ~ 1 1.5
 playsound minecraft:entity.experience_orb.pickup master @s ~ ~ ~ 1 1.5
 
-particle block{block_state:{Name:ice}} ~ ~1 ~ 0.4 0.8 0.4 0.7 20
+particle block{block_state:"minecraft:ice"} ~ ~1 ~ 0.4 0.8 0.4 0.7 20
 
 # attributes
 attribute @s movement_speed base reset

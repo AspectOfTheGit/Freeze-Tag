@@ -1,6 +1,6 @@
 
-particle block{block_state:{Name:ice}} ~ ~1 ~ 0.25 0.45 0.25 0.7 4
-particle snowflake ~ ~1 ~ 0.3 0.7 0.3 0.01 1
+particle block{block_state:"minecraft:ice"} ~ ~1 ~ 0.25 0.45 0.25 0.7 4
+#particle snowflake ~ ~1 ~ 0.3 0.7 0.3 0.01 1
 playsound block.glass.break master @a ~ ~1.1 ~ 0.05 0.5
 data merge entity @s[tag=freeze_display_0] {transformation:[0.6124742479f,0f,-0.1641119801f,-0.23215f,0f,0.63408f,0f,0f,0.1641119801f,0f,0.6124742479f,-0.4735625f,0f,0f,0f,1f],interpolation_duration:2,start_interpolation:0}
 data merge entity @s[tag=freeze_display_1] {transformation:[0.6890335289f,0f,0.1846259776f,-0.4303f,0f,0.71334f,0f,0.63408f,-0.1846259776f,0f,0.6890335289f,-0.2754125f,0f,0f,0f,1f],interpolation_duration:2,start_interpolation:0}
