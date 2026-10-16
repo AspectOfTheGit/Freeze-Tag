@@ -23,6 +23,8 @@ scoreboard players reset @s tagged_time_s
 
 tag @s remove tagged
 
+scoreboard players set @s no_tag 20
+
 function code:tag/remove_display
 
 execute if entity @s[gamemode=spectator] run return 0

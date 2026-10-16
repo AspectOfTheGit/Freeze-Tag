@@ -15,6 +15,9 @@ data modify entity @s Motion set value [0d,0d,0d]
 tag @s add tagged
 scoreboard players operation @s tagged_time_t = freeze_time const
 
+scoreboard players add @s times_tagged 1
+execute on attacker run scoreboard players add @s players_tagged 1
+
 tellraw @a[team=runner] [{"atlas":"minecraft:particles","sprite":"generic_6",color:"white"},{"text":" "},{selector:"@s",color:"red"},{"text":" has been ",color:"red"},{"text":"frozen",color:"blue"},{"text":"! ",color:"red"},{"atlas":"minecraft:particles","sprite":"generic_6",color:"white"}]
 tellraw @a[team=!runner] [{"atlas":"minecraft:particles","sprite":"generic_6",color:"white"},{"text":" "},{selector:"@s",color:"white"},{"text":" has been ",color:"white"},{"text":"frozen",color:"aqua"},{"text":"! ",color:"white"},{"atlas":"minecraft:particles","sprite":"generic_6",color:"white"}]
 

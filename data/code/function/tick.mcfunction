@@ -16,7 +16,10 @@ execute as @a[tag=!tagged] run data modify entity @s TicksFrozen set value 0s
 execute as @e[type=block_display] unless score @s anim_frame matches -1 if score @s anim_wait matches ..0 at @s run function code:tag/freeze_anim/next
 execute as @e[type=block_display] unless score @s anim_frame matches -1 unless score @s anim_wait matches ..0 run scoreboard players remove @s anim_wait 1
 
-effect give @a night_vision infinite 0 true
+execute if score nightvision temp matches 1 run effect give @a[gamemode=adventure] night_vision infinite 0 true
+execute if score nightvision temp matches 0 run effect clear @a[gamemode=adventure,tag=!notplaying] night_vision
+effect give @a[gamemode=spectator] night_vision infinite 0 true
+
 effect give @a saturation infinite 0 true
 
 execute if score playing temp matches 1 if score tagger_start_timer temp matches 1.. run scoreboard players remove tagger_start_timer temp 1
@@ -35,16 +38,21 @@ execute if score new_round_timer temp matches 0 run function code:round/new
 
 execute if score playing temp matches 1 if score tagger_start_timer temp matches 0 run scoreboard players add round_timer temp 1
 
+execute if score playing temp matches 1 as @a[team=runner,tag=!notplaying,gamemode=adventure] at @s if block ~ ~ ~ lava run function code:lava_killed
+
 bossbar set timer players @a
 
 execute store result storage code:freezetag temp.timer int 1 run scoreboard players get round_timer temp
 scoreboard players operation time_left_s temp = round_time const
 scoreboard players operation time_left_s temp -= round_timer temp
+execute store result storage code:freezetag temp.ticks int 1 run scoreboard players get time_left_s temp
 execute store result storage code:freezetag temp.seconds int 1 run scoreboard players operation time_left_s temp /= 20 const
 execute store result storage code:freezetag temp.max int 1 run scoreboard players get round_time const
 function code:set_bossbar with storage code:freezetag temp
 
 execute if score playing temp matches 1 if score round_timer temp >= round_time const run function code:round/runners_win
+
+execute as @a[scores={no_tag=1..}] run scoreboard players remove @s no_tag 1
 
 execute as @a[team=tagger,tag=!notplaying] run attribute @s movement_speed base set 0.125
 execute as @a[team=runner,tag=!tagged,tag=!notplaying] run attribute @s movement_speed base reset
@@ -63,6 +71,8 @@ execute as @e[tag=!valid,tag=user_freeze_display] run function code:tag/remove_d
 execute as @e[tag=!valid,tag=user_freeze_display] run kill
 
 execute as @a[tag=notplaying] run title @s actionbar {color:"yellow",text:"👁 You are spectating!"}
+
+execute as @a[team=runner,tag=!tagged,gamemode=adventure,tag=!notplaying] if score playing temp matches 1 if score round_timer temp matches 1.. run scoreboard players add @s time_survived_t 1
 
 scoreboard players enable @a afk
 # RETURN IS USED HERE. dont put anything important after.
